@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Rahul",
+      "email": "rahul@gmail.com",
+      "dateOfBirth": "2022-06-05",
+      "avatar": "C:\\fakepath\\jdd.png",
+      "country": ""
+    },
+    {
+      "id": 6,
+      "name": "Jon300",
+      "email": "deo123@gmail.com",
+      "dateOfBirth": "2022-06-12",
+      "avatar": "C:\\fakepath\\jdd.png",
+      "country": "India"
+    },
+    {
+      "id": 7,
+      "name": "tushar",
+      "email": "deo123@gmail.com",
+      "dateOfBirth": "2022-06-12",
+      "avatar": "C:\\fakepath\\jdd.png",
+      "country": "xSdfsghgj"
+    },
+    {
+      "id": 8,
+      "name": "",
+      "email": "",
+      "dateOfBirth": "",
+      "avatar": "",
+      "country": ""
+    },
+    {
+      "id": 9,
+      "name": null,
+      "email": null,
+      "dateOfBirth": null,
+      "avatar": null,
+      "country": null
+    },
+    {
+      "id": 10,
+      "name": "Deee",
+      "email": "sdsd33@gmail.com",
+      "dateOfBirth": "2022-07-04",
+      "avatar": "C:\\fakepath\\jdd.png",
+      "country": "India"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

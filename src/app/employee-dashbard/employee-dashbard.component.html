@@ -1,0 +1,178 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+        <h1 class="text-white">Angular CRUD Assignment</h1>
+        <div class="d-flex">
+            <button (click)="clickAddEmploye()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                class="btn btn-success"><i class="bi bi-plus-lg"></i> Add Employee</button>
+        </div>
+    </div>
+</nav>
+
+<!-- <div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label"> Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Date Of Birth</label>
+                        <input type="date" formControlName="dateOfBirth" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Avatar</label>
+                        <input type="file" id="image" (change)="onselectFile($event)" formControlName="avatar"
+                            class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Country</label>
+                        <input type="text" formControlName="country" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+
+                    <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" *ngIf="showAdd"  (click)="postEmployeeDetails()"
+                        class="btn btn-primary">Add</button>
+                    <button type="button" *ngIf="showUpdate" (click)="putEmployeeDetails()"
+                        class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div> -->
+    <!-- *ngIf="showAdd"
+    *ngIf="showUpdate"  -->
+    <!-- <div class="col-md-8">
+        <div class="container">
+        <div class="card cd mt-5" style="width: 100%;">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Date of Birth</th>
+                                <th scope="col">Avatar</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of employeeData">
+                                <td>{{row.id}}</td>
+                                <td>{{row.name}}</td>
+                                <td>{{row.email}}</td>
+                                <td>{{row.dateOfBirth | date:'fullDate' | uppercase}}</td>
+                                <td><img [src]="url" height="50" width="50"></td>
+                                <td>{{row.country}}</td>
+                                <td>
+                                    <button (click)="onEdit(row)" class="btn btn-info text-white" type="button"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                    <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="card cd mt-5" style="width: 100%;">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Date of Birth</th>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of employeeData">
+                            <td>{{row.id}}</td>
+                            <td>{{row.name}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.dateOfBirth | date:'fullDate' | uppercase}}</td>
+                            <td><img [src]="url" height="50" width="50"></td>
+                            <td>{{row.country}}</td>
+                            <td>
+                                <button (click)="onEdit(row)" class="btn btn-info text-white" type="button"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><b>Employee Details</b></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label"> Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Date Of Birth</label>
+                        <input type="date" formControlName="dateOfBirth" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Avatar</label>
+                        <input type="file" id="image" (change)="onselectFile($event)" formControlName="avatar"
+                            class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Country</label>
+                        <input type="text" formControlName="country" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" *ngIf="showAdd" (click)="postEmployeeDetails()"
+                    class="btn btn-primary">Add</button>
+                <button type="button" *ngIf="showUpdate" (click)="putEmployeeDetails()"
+                    class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
